@@ -29,6 +29,23 @@ def plot_normal_distribution():
      # Show the plot
      plt.show()
 def plot_line(y_intercept, slope, x_lower, x_upper):
+    """
+    Plots a line based on the given parameters.
+
+    Parameters:
+        y_intercept (float): The y-intercept of the line, where the line crosses the Y-axis.
+        slope (float): The slope of the line, determining its steepness.
+        x_lower (float): The lower boundary of the X-axis range.
+        x_upper (float): The upper boundary of the X-axis range.
+
+    Graph Details:
+        - The line is plotted within the range [x_lower, x_upper].
+        - X and Y axes are marked with dashed lines.
+        - The graph includes a legend displaying the line equation.
+
+    Returns:
+        None
+    """
     # Generate X values
     x_values = np.linspace(x_lower, x_upper, 100)
 
