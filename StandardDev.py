@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from collections import deque
+import time
 
 def plot_normal_distribution():
      """
@@ -63,6 +66,37 @@ def plot_line(y_intercept, slope, x_lower, x_upper):
     plt.grid(True)
     plt.legend()
     plt.show()
+
+def live_graph():
+    # Deque to store the most recent 10 points
+    data = deque(maxlen=10)
+
+    # Initialize plot
+    fig, ax = plt.subplots()
+    line, = ax.plot([], [], 'bo-', label="Live Data")
+
+    # Set up plot limits
+    ax.set_xlim(0, 10)  # Fixed x-axis for 10 points
+    ax.set_ylim(-3, 3)  # Y-axis range for normal distribution
+    ax.set_title("Live Updating Graph of Points")
+    ax.set_xlabel("Point Index")
+    ax.set_ylabel("Value")
+    ax.legend()
+    ax.grid(True)
+    def update(frame):
+        # Generate a new random point
+        new_point = np.random.normal(0, 1)
+        data.append(new_point)
+
+        # Update the line data
+        line.set_data(range(len(data)), data)
+        return line,
+
+    # Animation
+    ani = animation.FuncAnimation(fig, update, interval=1000, blit=True)
+
+plt.show()
+
 # Call the function to execute
 if __name__ == "__main__":
     plot_normal_distribution()
