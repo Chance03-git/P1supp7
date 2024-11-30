@@ -97,6 +97,9 @@ def live_graph():
 
 plt.show()
 
+if __name__ == "__main__":
+    live_graph()
+
 # Call the function to execute
 if __name__ == "__main__":
     plot_normal_distribution()
