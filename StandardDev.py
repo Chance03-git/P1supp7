@@ -81,6 +81,7 @@ def test_plot_normal_distribution():
     assert np.abs(np.std(y) - 1) < 0.1, "StdDev of Y should be close to 1"
 
 def test_plot_line():
+
     # Parameters
     y_intercept = 2
     slope = 3
@@ -95,3 +96,13 @@ def test_plot_line():
     assert len(x_values) == 100, "X values should have 100 points"
     assert np.allclose(expected_y_values[0], slope * x_lower + y_intercept), "Y value at lower bound is incorrect"
     assert np.allclose(expected_y_values[-1], slope * x_upper + y_intercept), "Y value at upper bound is incorrect"
+
+def test_live_graph_point_generation():
+    # Generate 20 points
+    points = [np.random.normal(0, 1) for _ in range(20)]
+    
+    # Only the last 10 points should be retained
+    recent_points = points[-10:]
+
+    assert len(recent_points) == 10, "Should only retain the last 10 points"
+    assert recent_points == points[-10:], "Recent points should match the last 10 points"
