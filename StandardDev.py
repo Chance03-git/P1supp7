@@ -28,7 +28,24 @@ def plot_normal_distribution():
 
      # Show the plot
      plt.show()
+def plot_line(y_intercept, slope, x_lower, x_upper):
+    # Generate X values
+    x_values = np.linspace(x_lower, x_upper, 100)
 
+    # Calculate corresponding Y values
+    y_values = slope * x_values + y_intercept
+
+    # Plot the line
+    plt.figure(figsize=(8, 6))
+    plt.plot(x_values, y_values, label=f"y = {slope}x + {y_intercept}")
+    plt.title("Line Plot")
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.axhline(0, color='black', linewidth=0.5, linestyle='--')
+    plt.axvline(0, color='black', linewidth=0.5, linestyle='--')
+    plt.grid(True)
+    plt.legend()
+    plt.show()
 # Call the function to execute
 if __name__ == "__main__":
     plot_normal_distribution()
