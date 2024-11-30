@@ -2,6 +2,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_normal_distribution():
+     """
+    Generates 200 points sampled from a standard normal distribution
+    and plots them as a scatter plot.
+
+     - Points are sampled independently for X and Y coordinates.
+    - Standard normal distribution:
+        - Mean = 0
+        - StdDev = 1
+
+    Visual Representation:
+        - Each point is plotted with transparency to highlight density.
+        - A grid is added for better visualization.
+    """
      x = np.random.normal(loc=0, scale=1, size=200)
      y = np.random.normal(loc=0, scale=1, size=200)
 
