@@ -68,6 +68,21 @@ def plot_line(y_intercept, slope, x_lower, x_upper):
     plt.show()
 
 def live_graph():
+    """
+    Generates and displays a live graph that updates with one point every second.
+
+    Points are sampled from a normal distribution, and only the most recent 10 points are shown.
+
+    Distribution:
+        - Mean = 0
+        - StdDev = 1
+
+    Graph Details:
+        - X-axis: Fixed from 0 to 10 (indices of points).
+        - Y-axis: Fixed from -3 to 3 to cover the range of standard normal values.
+        - The graph updates every second with a new point.
+        - Only the 10 most recent points are displayed.
+    """
     # Deque to store the most recent 10 points
     data = deque(maxlen=10)
 
